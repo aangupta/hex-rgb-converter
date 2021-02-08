@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rgb Hex Converter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h3>RGB to HEX Converter</h3>
+        <hr style="color: gray;">
+    </header>
+    <section class="wrapper">
+        <section class="wrapper-left">
+            <h3>RGB to HEX Converter</h3>
+            <h4>Enter red, green and blue color levels (0..255) and press the Convert button:</h4>
+
+            <div class="form-group">
+                <label for="r"> Red Color (R)</label>
+                <div class="group-content">
+                    <div>
+                        <input type ="number" id="r" placeholder="000" min="0" max="255" size="3">
+                    </div>
+                    <div>
+                        <input type ="range" id="red" min="0" max="255" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="g"> Green Color (G)</label>
+                <div class="group-content">
+                    <div>
+                        <input type ="number" id="g" placeholder="000" min="0" max="255" size="3">
+                    </div>
+                    <div>
+                        <input type ="range" id="green" min="0" max="255" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="r"> Blue Color (B)</label>
+                <div class="group-content">
+                    <div>
+                        <input type ="number" id="b" placeholder="000" min="0" max="255" size="3">
+                    </div>
+                    <div>
+                        <input type ="range" id="blue" min="0" max="255" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                
+            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2rem; justify-items: center;">
+                <input type="button" id="convert" value ="Convert" autofocus>
+                <input type="button" id="clear" value ="Clear" autofocus>
+            </div>
+
+
+            <div class="form-group">
+                <label for="rgb-output"> Color Preview</label>
+                <input type ="text" id = "rgb-output">
+            </div>
+            <div class="form-group">
+                <label for="hex-value"> Hex Color Code</label>
+                <input type ="text" id="hex-value" placeholder="#FFFFFF">
+
+            </div>
+
+            <div class="form-group">
+                <label for="rgb-value"> RGB Color Code</label>
+                <input type ="text" id="rgb-value" placeholder="rgb(255,255,255)">
+            </div>
+
+            
+
+        </section>
+        <section class="wrapper-right">
+            <div class ="tools">
+                <h3>Related Tools</h3>
+                <div><a href="hextorgb.html" style="color: black;">Hex to Converter</a></div>
+           </div>
+        </section>
+    </section>
+
+    <script>
+        const rgbToHex=(red,green,blue)=>'#'+[red,green,blue].map(x=>{
+            x=parseInt(x);
+            const hex=x.toString(16);
+            return hex.length==1?`0${hex}`:hex;
+        }).join('');
+    
+        function myfunction () {
+            const red = document.querySelector('#red').value;
+            const green = document.querySelector('#green').value;
+            const blue = document.querySelector('#blue').value;
+            const r = document.querySelector('#r');
+            const g = document.querySelector('#g');
+            const b = document.querySelector('#b');
+            const col = document.querySelector('#rgb-output');
+            const rgbval = document.querySelector('#rgb-value');
+            const hexval = document.querySelector('#hex-value');
+            const color = 'rgb('+ red +', '+ green +', '+ blue +')';
+            r.value =red;
+            g.value =green;
+            b.value=blue;
+            col.style.backgroundColor = color;
+            rgbval.value=color;
+            hexval.value= rgbToHex(red,green,blue);
+
+        }
+        document.querySelector('#red').addEventListener('input', () =>{
+            document.querySelector('#r').value = document.querySelector('#red').value;
+        });
+        document.querySelector('#green').addEventListener('input', () => {
+            document.querySelector('#g').value = document.querySelector('#green').value;
+        });
+        document.querySelector('#blue').addEventListener('input', () => {
+            document.querySelector('#b').value = document.querySelector('#blue').value;
+        });
+        document.querySelector('#clear').addEventListener('click', () => {
+            document.querySelector('#red').value ='0';
+            document.querySelector('#green').value ='0';
+            document.querySelector('#blue').value= '0';
+            document.querySelector('#rgb-output').value ='';
+            document.querySelector('#rgb-value').value='';
+            document.querySelector('#hex-value').value='';
+            document.querySelector('#r').value='0';
+            document.querySelector('#g').value='0';
+            document.querySelector('#b').value='0';
+            document.querySelector('#rgb-output').style.backgroundColor = '';
+        });  
+        
+        document.querySelector('#convert').addEventListener('click', myfunction);
+    </script>
+    <footer>
+        <p>Created by &copy; Aanchal Gupta</p>
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEX to RGB Converter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h3>HEX to RGB Converter</h3>
+    </header>
+
+    <section class="wrapper">
+       <section class="wrapper-left">
+           <h3>HEX to RGB Color Converter</h3>
+           <h4>
+            Enter 6 digits hex color code and press the Convert button:
+           </h4>
+           <div class="form-group">
+               <label for="hexcode">Hex color code (#RRGGBB)</label>
+               <input type="text" placeholder="000000" minlength="3" maxlength="7" autofocus id="hexcode">
+           </div>
+           <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2rem; justify-items: center;">
+               <input type="button" id="convert" value ="Convert" autofocus>
+               <input type="button" id="clear" value ="Clear" autofocus>
+           </div>
+
+           <div class="form-group">
+               <label for="r">Red Color(R)</label>
+               <input type="text" name="red" id="r">
+           </div>
+
+           <div class="form-group">
+                <label for="g">Green Color(G)</label>
+                <input type="text" name="green" id="g">
+            </div>
+
+            <div class="form-group">
+                <label for="r">Blue Color(B)</label>
+                <input type="text" name="blue" id="b">
+            </div>
+
+            <div class="form-group">
+                <label for="csscolor">CSS Color</label>
+                <input type="text" name="csscolor" id="csscolor">
+            </div>
+
+            <div class="form-group">
+                <label for="r">Color Preview</label>
+                <input type="text" name="preview" id="preview">
+            </div>
+       </section>
+
+       <section class="wrapper-right">
+           <div class ="tools">
+                <h3>Related Tools</h3>
+                <div><a href="index.html" style="color: black;">RGB to Hex Converter</a></div>
+           </div>
+       </section>
+    </section>
+
+
+    <script>
+        function myfunction() {
+
+            let r,g,b ="";
+            let hex = document.querySelector('#hexcode').value;
+            if( hex=="" ) hex="000000";
+			if( hex.charAt(0)=="#" ) hex=hex.substring(1,hex.length);
+            if( hex.length==3 )
+			{
+				r = hex.substring(0,1);
+				g = hex.substring(1,2);
+				b = hex.substring(2,3);
+				r=r+r;
+				g=g+g;
+				b=b+b;
+			}
+			else
+			{
+				r = hex.substring(0,2);
+				g = hex.substring(2,4);
+				b = hex.substring(4,6);
+			}
+            r = parseInt(r, 16);
+			g = parseInt(g, 16);
+			b = parseInt(b, 16);
+
+            let css = 'rgb('+r+','+g+','+b+')';
+            document.querySelector('#csscolor').value=css;
+            document.querySelector('#r').value =r;
+            document.querySelector('#g').value =g;
+            document.querySelector('#b').value =b;
+            document.querySelector('#preview').style.backgroundColor =css;
+        }
+
+        document.querySelector('#convert').addEventListener('click',myfunction);
+        document.querySelector('#clear').addEventListener('click', () =>{
+
+            document.querySelector('#csscolor').value=" ";
+            document.querySelector('#r').value =" ";
+            document.querySelector('#g').value =" ";
+            document.querySelector('#b').value =" ";
+            document.querySelector('#preview').style.backgroundColor = "#ffffff";
+        });
+            
+    </script>
+
+    <footer>
+        <p>Created by &copy; Aanchal Gupta</p>
+    </footer>
+
+
+
+    
+</body>
+</html>

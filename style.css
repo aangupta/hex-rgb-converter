@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  display: grid;
+  background: #f0f0f0;
+  font-family: 'Crimson Text', serif;
+  color: #000;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+  outline: none;
+  margin: 0 3rem;
+}
+
+input[type="range"] ::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 3px;
+  background: #fff;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.form-group #red {
+  background: linear-gradient(90deg, #000, red);
+}
+
+.form-group #green {
+  background: linear-gradient(90deg, #000, green);
+}
+
+.form-group #blue {
+  background: linear-gradient(90deg, #000, blue);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  justify-content: space-around;
+  grid-gap: 2rem;
+}
+
+.wrapper-left {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+
+.group-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type=text],
+select {
+  padding: 1rem;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 320px;
+  height: 100px;
+}
+
+input[type=number],
+select {
+  padding: 1rem;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=button],
+select {
+  padding: 0.5rem;
+  display: inline-block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background: grey;
+  text-decoration: solid;
+  color: black;
+}
+
+h3 {
+  margin: 2rem;
+}
+
+footer {
+  color: black;
+  font-family: 'Crimson Text', serif;
+  text-align: right;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tools {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
