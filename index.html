@@ -8,87 +8,96 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <header>
-        <h3>RGB to HEX Converter</h3>
-        <hr style="color: gray;">
-    </header>
+        <div class="hd-text">
+            <a style = "text-decoration: none;" href= "index.html" class = "title" > <h2>Color Converter</h2></a>
+        </div>
+        <div class="home">
+            <a style = "text-decoration: none;" href= "https://utilityappmain.netlify.app/index.html" class = "title" target="_blank" > <h2>Home</h2></a>
+        </div>
+            
+     </header>
+       
     <section class="wrapper">
         <section class="wrapper-left">
             <h3>RGB to HEX Converter</h3>
             <h4>Enter red, green and blue color levels (0..255) and press the Convert button:</h4>
 
-            <div class="form-group">
-                <label for="r"> Red Color (R)</label>
-                <div class="group-content">
-                    <div>
-                        <input type ="number" id="r" placeholder="000" min="0" max="255" size="3">
-                    </div>
-                    <div>
-                        <input type ="range" id="red" min="0" max="255" value="0">
+           <div class="input">
+                <div class="form-group">
+                    <label for="r" class ='label'> Red Color (R)</label>
+                    <div class="group-content">
+                            <input type ="number" id="r" placeholder="000" min="0" max="255" size="3">
+                            <input type ="range" id="red" min="0" max="255" value="0">
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="g"> Green Color (G)</label>
-                <div class="group-content">
-                    <div>
-                        <input type ="number" id="g" placeholder="000" min="0" max="255" size="3">
-                    </div>
-                    <div>
-                        <input type ="range" id="green" min="0" max="255" value="0">
+                <div class="form-group">
+                    <label for="g" class ='label'> Green Color (G)</label>
+                    <div class="group-content">
+                            <input type ="number" id="g" placeholder="000" min="0" max="255" size="3">
+                            <input type ="range" id="green" min="0" max="255" value="0" class = 'range'>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="r"> Blue Color (B)</label>
-                <div class="group-content">
-                    <div>
-                        <input type ="number" id="b" placeholder="000" min="0" max="255" size="3">
-                    </div>
-                    <div>
-                        <input type ="range" id="blue" min="0" max="255" value="0">
+                <div class="form-group">
+                    <label for="r" class="label"> Blue Color (B)</label>
+                    <div class="group-content">
+                            <input type ="number" id="b" placeholder="000" min="0" max="255" size="3">
+                            <input type ="range" id="blue" min="0" max="255" value="0"> 
                     </div>
                 </div>
-            </div>
+                    
+                <div style ='display: flex; align-items: center; flex-direction: row;'>
+                    <input type="button" id="convert" value ="Convert" autofocus class ='btn'>
+                    <input type="button" id="clear" value ="Clear" autofocus class ='btn'>
+                </div>
 
-            <div class="form-group">
-                
-            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2rem; justify-items: center;">
-                <input type="button" id="convert" value ="Convert" autofocus>
-                <input type="button" id="clear" value ="Clear" autofocus>
-            </div>
-
-
-            <div class="form-group">
-                <label for="rgb-output"> Color Preview</label>
-                <input type ="text" id = "rgb-output">
-            </div>
-            <div class="form-group">
-                <label for="hex-value"> Hex Color Code</label>
-                <input type ="text" id="hex-value" placeholder="#FFFFFF">
-
-            </div>
-
-            <div class="form-group">
-                <label for="rgb-value"> RGB Color Code</label>
-                <input type ="text" id="rgb-value" placeholder="rgb(255,255,255)">
-            </div>
-
-            
-
-        </section>
-        <section class="wrapper-right">
-            <div class ="tools">
-                <h3>Related Tools</h3>
-                <div><a href="hextorgb.html" style="color: black;">Hex to Converter</a></div>
            </div>
+
+           <div class="result">
+                <div class="form-group">
+                    <label for="rgb-output" class ='label'> Color Preview</label>
+                    <input type ="text" id = "rgb-output">
+                </div>
+                <div class="form-group">
+                    <label for="hex-value" class= 'label'> Hex Color Code</label>
+                    <input type ="text" id="hex-value" placeholder="#FFFFFF">
+
+                </div>
+
+                <div class="form-group">
+                    <label for="rgb-value" class ='label'> RGB Color Code</label>
+                    <input type ="text" id="rgb-value" placeholder="rgb(255,255,255)">
+                </div>
+
+               <div class="btn-transfer">
+                   <a href="hextorgb.html"><input type="button" id="convert" value ="Hex To RGB" autofocus class ='btn'></a>
+               </div>
+           </div>
+
         </section>
     </section>
+
+    <footer>
+        <div class="footer-text">
+            <h4>Made with <span class="fa fa-heart"></span> by Aanchal</h4>
+        </div>
+        <div class="footer-icons">
+            <ul>
+                <li> <a href="https://github.com/aangupta"class="fa fa-github"target="_blank"></a></li>
+                <li> <a href="https://www.linkedin.com/in/aanchal-gupta-3ab35bb1/" class="fa fa-linkedin" target="_blank"></a></li>
+                <li><a href="https://twitter.com/aangupta5"class="fa fa-twitter"target="_blank"></a> </li>
+                <li> <a href="mailto: aanchalgupta457@gmail.com" class="fa fa-envelope" target="_blank"></a> </li>
+            </ul>
+            
+        </div>
+    </footer>
 
     <script>
         const rgbToHex=(red,green,blue)=>'#'+[red,green,blue].map(x=>{
@@ -140,9 +149,7 @@
         
         document.querySelector('#convert').addEventListener('click', myfunction);
     </script>
-    <footer>
-        <p>Created by &copy; Aanchal Gupta</p>
-    </footer>
+    
 
 
 </body>
